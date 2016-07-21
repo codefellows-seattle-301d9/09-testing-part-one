@@ -25,7 +25,7 @@ function expect(expression, failureMessage, successMessage) {
     to see what happens when the test fails, then change `ricksFaveAnimal`
     to get the test to pass!
 */
-var ricksFaveAnimal = 'hyena';
+var ricksFaveAnimal = 'penguin';
 
 expect(
   ricksFaveAnimal === 'penguin',
@@ -43,20 +43,25 @@ expect(
   */
 
 var favoriteAnimals = ['elephants', 'penguins', 'eagles', 'camels'];
-var nextAnimal;
+var nextAnimal = 'elephants';
 
   /* TODO:
-      Assign one of your favorite animals dynamically by chance to the 
+      Assign one of your favorite animals dynamically by chance to the
       nextAnimal variable   :-)
       Your code begins on the next line: */
 
   /* TODO:
       Write a test! Use the `expect()` function we defined earlier to ensure
       that an element in the favoriteAnimals array was assigned to nextAnimal.
-      No hard-coded results allowed! (ex: seeing if nextAnimal is equal to 
+      No hard-coded results allowed! (ex: seeing if nextAnimal is equal to
       just 'penguin').
       Remember to: pass in your expression, and write a failure and a success
       message. Your test begins on the next line: */
 
-
-
+expect(
+  favoriteAnimals.find(function(arrayAnimal) {
+    return arrayAnimal = nextAnimal;
+  }),
+  'That animal is not in the list of favorites.',
+  'That is a favorite animal!'
+);
