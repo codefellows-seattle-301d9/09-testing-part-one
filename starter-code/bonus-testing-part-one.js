@@ -13,25 +13,25 @@
     functionality first to then refactor the test to pass.
     This is common practice in testing ('red-green' refactoring).
 */
-function expect(expression, failureMessage, successMessage) {
-  if (!expression) {
-    console.log('test failed:', failureMessage);
-    return;
-  }
-  console.log('test passed:', successMessage);
-}
+// function expect(expression, failureMessage, successMessage) {
+//   if (!expression) {
+//     console.log('test failed:', failureMessage);
+//     return;
+//   }
+//   console.log('test passed:', successMessage);
+// }
 
 /* Below is an example of our test in action.
 TODO: Run this file in node
     to see what happens when the test fails, then change `ricksFaveAnimal`
     to get the test to pass!
 */
-var ricksFaveAnimal = 'hyena';
-
-expect(
-  ricksFaveAnimal === 'penguin',
-  'ricksFavoriteAnimal should equal penguin, but currently equals ' + ricksFaveAnimal,
-  'ricksFavoriteAnimal equals penguin!');
+// var ricksFaveAnimal = 'hyena';
+//
+// expect(
+//   ricksFaveAnimal === 'penguin',
+//   'ricksFavoriteAnimal should equal penguin, but currently equals ' + ricksFaveAnimal,
+//   'ricksFavoriteAnimal equals penguin!');
 
   // BEGIN WORK BELOW - test code by running `node bonus-testing-part-one.js`
   //  in your terminal!
@@ -43,8 +43,30 @@ expect(
    animals. You only have time for one. How do you choose just one?!
   */
 
+function expect(expression, failureMessage, successMessage) {
+  if (!expression) {
+    console.log('test failed:' + failureMessage);
+    return;
+  }
+  console.log('test passed:' + successMessage);
+}
+
 var favoriteAnimals = ['elephants', 'penguins', 'eagles', 'camels'];
+var allAnimals = ['elephants', 'penguins', 'eagles', 'camels', 'tigers', 'bears', 'monkies'];
 var nextAnimal;
+var randomIndex = Math.floor(Math.random() * allAnimals.length);
+nextAnimal = allAnimals[randomIndex];
+
+expect(
+  favoriteAnimals.indexOf(nextAnimal) !== -1,
+  'You don\'t get to see your one of your favorite animals today!',
+  'Great! You got to see ' + favoriteAnimals
+
+);
+
+
+
+
 
   /* TODO:
       Assign one of your favorite animals dynamically by chance to the
