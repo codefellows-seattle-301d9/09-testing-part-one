@@ -43,14 +43,25 @@ expect(
   */
 
 var favoriteAnimals = ['elephants', 'penguins', 'eagles', 'camels'];
-var nextAnimal = 'elephants';
+var nextAnimal;
 
   /* TODO:
       Assign one of your favorite animals dynamically by chance to the
       nextAnimal variable   :-)
       Your code begins on the next line: */
 
-  /* TODO:
+// getRandomIntInclusive is taken from MDN page on Math.random()!
+function getRandomIntInclusive(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function chooseAnAnimal() {
+  num = getRandomIntInclusive(0,3);
+  nextAnimal = favoriteAnimals[num];
+  return nextAnimal;
+}
+
+  /* DONE:
       Write a test! Use the `expect()` function we defined earlier to ensure
       that an element in the favoriteAnimals array was assigned to nextAnimal.
       No hard-coded results allowed! (ex: seeing if nextAnimal is equal to
@@ -60,8 +71,9 @@ var nextAnimal = 'elephants';
 
 expect(
   favoriteAnimals.find(function(arrayAnimal) {
+    nextAnimal = chooseAnAnimal();
     return arrayAnimal = nextAnimal;
   }),
   'That animal is not in the list of favorites.',
-  'That is a favorite animal!'
+  'You\'re going to see the ' + nextAnimal + '!'
 );
