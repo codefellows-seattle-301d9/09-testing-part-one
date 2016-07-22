@@ -51,7 +51,7 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-var nextAnimal = favoriteAnimals[getRandomIntInclusive(0, favoriteAnimals.length)];
+var nextAnimal = favoriteAnimals[getRandomIntInclusive(0, favoriteAnimals.length - 1)];
   /* TODO:
       Write a test! Use the `expect()` function we defined earlier to ensure
       that an element in the favoriteAnimals array was assigned to nextAnimal.
