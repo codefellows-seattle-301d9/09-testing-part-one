@@ -14,11 +14,12 @@
     This is common practice in testing ('red-green' refactoring).
 */
 function expect(expression, failureMessage, successMessage) {
+  //first we are checking to see if the expression is false
   if (!expression) {
-    console.log('test failed:', failureMessage);
+    console.log(failureMessage);
     return;
   }
-  console.log('test passed:', successMessage);
+  console.log(successMessage);
 }
 
 /* Below is an example of our test in action.
@@ -28,6 +29,10 @@ TODO: Run this file in node
 */
 var ricksFaveAnimal = 'hyena';
 
+//this expects three parameters
+//first is checking if the fav animal is penguin
+//failure message is the second one
+//success message is the last one
 expect(
   ricksFaveAnimal === 'penguin',
   'ricksFavoriteAnimal should equal penguin, but currently equals ' + ricksFaveAnimal,
@@ -44,12 +49,19 @@ expect(
   */
 
 var favoriteAnimals = ['elephants', 'penguins', 'eagles', 'camels'];
-var nextAnimal;
-
+var nextAnimal = 'lions';
   /* TODO:
       Assign one of your favorite animals dynamically by chance to the
       nextAnimal variable   :-)
       Your code begins on the next line: */
+function getRandomIntInclusive(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+expect(
+  favoriteAnimals.indexOf(nextAnimal) !== -1,
+  'Ultimate fail, ' + nextAnimal + ' are not in the zoo today.',
+  'Way to be, you definitely get to see ' + nextAnimal + ' today.');
 
   /* TODO:
       Write a test! Use the `expect()` function we defined earlier to ensure
